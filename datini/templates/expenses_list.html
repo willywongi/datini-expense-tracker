@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'table.css' %}">
+{% endblock head %}
+{% block main %}
+        <section>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>When</th>
+                            <th>What</th>
+                            <th>Category</th>
+                            <th>Who</th>
+                            <th>How much</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for expense in expenses %}
+                        <tr>
+                            <td>{{expense.created_at|date:"D d M Y"}}</td>
+                            <td>{{expense.what}}</td>
+                            <td>{{expense.category}}</td>
+                            <td>{{expense.who}}</td>
+                            <td>{{expense.how_much}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <p class="actions">
+                    <a href="{% url 'expenses_add' %}" class="action">Add new</a>
+                </p>
+            </div>
+        </section>
+{% endblock main %}

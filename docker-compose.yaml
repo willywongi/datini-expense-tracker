@@ -1,0 +1,36 @@
+version: "3"
+services:
+  datini:
+    env_file: 
+      - .env
+    container_name: $DJANGO_CONTAINER_NAME
+    build:
+      context: .
+      args:
+        DJANGO_PORT: $DJANGO_PORT
+    command: gunicorn --bind ":$DJANGO_PORT" --workers 3 datini.wsgi
+    volumes:
+      - ./log:$DJANGO_LOG_ROOT
+      - dbdata:$DJANGO_DBDATA_ROOT
+      - media:$DJANGO_MEDIA_ROOT
+      - static:$DJANGO_STATIC_ROOT
+
+  frontend:
+    image: nginx
+    env_file:
+      - .env
+    volumes:
+      - ./assets:/usr/share/nginx/html/
+      - media:/usr/share/nginx/html/media
+      - static:/usr/share/nginx/html/static
+      - cache:/frontend_cache
+    depends_on: 
+      - datini
+    expose:
+      - "80"
+
+volumes:
+  media:
+  static:
+  dbdata:
+  cache:

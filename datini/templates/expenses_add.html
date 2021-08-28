@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'form.css' %}">
+{% endblock head %}
+
+{% block main %}
+<section>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_section}}
+        <section class="actions">
+            <button type="submit">Add expense</button>
+        </section>
+    </form>
+</section>
+{% endblock main %}

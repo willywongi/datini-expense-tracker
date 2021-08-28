@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'form.css' %}">
+{% endblock head %}
+
+{% block main %}
+<section>
+    <form method="POST">
+        {% csrf_token %}
+        <section>
+            <label for="code">Clan code</label>
+            <input type="text" name="code" id="code">
+        </section>
+        <section class="actions">
+            <button type="submit">Join clan</button>
+        </section>
+    </form>
+    <form method="POST">
+        {% csrf_token %}
+        <section>
+            <label for="title">New clan name</label>
+            <input type="text" name="name" id="name">
+        </section>
+        <section class="actions">
+            <button type="submit">Create clan</button>
+        </section>
+    </form>
+</section>
+{% endblock main %}

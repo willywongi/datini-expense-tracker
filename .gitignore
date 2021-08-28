@@ -1,0 +1,17 @@
+# Editors
+.vscode/
+.idea/
+# Python
+**/*.pyc
+# MacOS files
+**/.DS_Store
+
+# Env files
+.env
+accounts.env
+
+# Log files
+log/*.log
+
+# Docker compose
+docker-compose.override.yaml

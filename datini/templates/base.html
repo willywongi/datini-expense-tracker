@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}{% endblock %}
+    <title>Datini{% if title %} - {{title}}{% endif %}</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+<body>
+    {% block header %}
+    <header>
+        <section>
+            <h1 class="logo">
+                <a href="{% url 'home' %}">Datini</a>
+            </h1>
+        </section>
+        <section class="menu">
+            <span class="close" onclick="document.body.classList.toggle('side-menu-open');">
+                &#x2262;
+            </span>
+            <nav>
+                <a href="{% url 'expenses_list' %}">Expenses</a>
+                <a href="info/">Info</a>
+                <a href="contacts/">Contacts</a>
+            </nav>
+            <nav class="account">
+            {% if user.is_authenticated %}
+            <a href="{% url 'home' %}" class="action">
+                {{user.email}}
+            </a>
+            <a href="{% url 'logout' %}" class="action">
+                Logout
+            </a>
+            {% else %}
+            <a href="{% url 'login' %}" class="action">
+                Login
+                </a>
+            {% endif %}
+            </nav>
+        </section>
+        <section class="hamburger">
+            <span onclick="document.body.classList.toggle('side-menu-open');">
+                &#x2263;
+            </span>
+        </section>
+    
+    </header>
+    {% endblock header %}
+    <main>
+    {% block main %}{% endblock %}
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,6 @@
+section.hero {
+    background-color: var(--old-gold);
+}
+section.hero h1 {
+    font-size: 5rem;
+}
