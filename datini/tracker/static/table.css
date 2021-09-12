@@ -40,4 +40,40 @@ tr:nth-child(even) td {
     td:last-child {
         border-bottom: 1px solid var(--action-light);
     }
+    thead {
+        display: none;
+    }
+    tbody tr {
+        display: grid;
+        grid-template-rows: 1fr 1.5fr; 
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: .5rem;
+    }
+    tbody tr:nth-child(even) {
+        border-bottom: 1px solid #EEE;
+    }
+    tbody tr td.created_at {
+        grid-area: 1 / 1 / 2 / 2;
+        font-size: 10px;
+        text-transform: uppercase;
+        color: var(--orange-soda);
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    tbody tr td.category {
+        grid-area: 1 / 2 / 2 / 3;
+    }
+    tbody tr td.what {
+        grid-area: 2 / 1 / 3 / 3;
+        font-size: 24px;
+    }
+    tbody tr td.who {
+        grid-area: 3 / 1 / 4 / 2;
+    }
+    tbody tr td.how_much {
+        grid-area: 3 / 2 / 4 / 3;
+        text-align: right;
+    }
 }

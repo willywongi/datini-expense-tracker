@@ -20,11 +20,11 @@
                     <tbody>
                         {% for expense in expenses %}
                         <tr>
-                            <td>{{expense.created_at|date:"D d M Y"}}</td>
-                            <td>{{expense.what}}</td>
-                            <td>{{expense.category}}</td>
-                            <td>{{expense.who}}</td>
-                            <td>{{expense.how_much}}</td>
+                            <td class="created_at">{{expense.created_at|date:"D d M Y"}}</td>
+                            <td class="what">{{expense.what}}</td>
+                            <td class="category">{{expense.category}}</td>
+                            <td class="who">{{expense.who}}</td>
+                            <td class="how_much">{{expense.how_much}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

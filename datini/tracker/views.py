@@ -4,6 +4,7 @@ from django.contrib.auth import forms, get_user_model, login
 from django.views.generic.edit import CreateView
 from django.forms import ModelForm, RadioSelect
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
 
 from .models import Expense, Clan
 
@@ -64,7 +65,7 @@ class ExpenseAddForm(ModelForm, FormSectionMixin):
 class ExpenseAddView(CreateView):
     template_name = 'expenses_add.html'
     form_class = ExpenseAddForm
-    success_url = 'expenses_list'
+    success_url = reverse_lazy('expenses_list')
 
     def get_initial(self):
         initial = super().get_initial()
