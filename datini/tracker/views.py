@@ -71,7 +71,7 @@ class ExpenseAddView(CreateView):
         initial['who'] = self.request.user
         return initial
 
-
+@login_required
 def clan(request):
     message = ""
     if request.method == "POST":

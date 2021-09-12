@@ -7,6 +7,15 @@
 
 {% block main %}
 <section>
+    {% if user.clan %}
+    You're a proud member of this clan: 
+    <h2>{{user.clan.name}}</h2>
+    Others can join your clan using this code.
+    <p>
+    
+    <h2><code>{{user.clan.code}}</code></h2>
+    </p>
+    {% else %}
     <form method="POST">
         {% csrf_token %}
         <section>
@@ -27,5 +36,6 @@
             <button type="submit">Create clan</button>
         </section>
     </form>
+    {% endif %}
 </section>
 {% endblock main %}

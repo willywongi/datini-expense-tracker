@@ -12,6 +12,8 @@ ALLOWED_HOSTS = []
 defined_hostname = os.environ.get('HOSTNAME')
 if defined_hostname:
     ALLOWED_HOSTS = [defined_hostname]
+if DEBUG:
+    ALLOWED_HOSTS.append("localhost")
 
 # Application definition
 
@@ -68,7 +70,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
-LANGUAGE_CODE = 'it-IT'
+LANGUAGE_CODE = 'en'
 TIME_ZONE = 'Europe/Rome'
 USE_I18N = True
 USE_L10N = True

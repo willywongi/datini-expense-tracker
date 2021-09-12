@@ -11,9 +11,11 @@
     </div>
 </section>
 <section>
+    {% if not user.is_authenticated %}
     <div>
         <a class="action" href="{% url 'signup' %}">Signup</a>
         <a class="action" href="{% url 'login' %}">Login</a>
     </div>
+    {% endif %}
 </section>
 {% endblock main %}

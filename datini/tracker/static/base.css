@@ -162,7 +162,7 @@ header section {
     align-items: center;
     gap: 1rem;
 }
-header h1.logo {
+header .logo {
     margin-right: 1rem;
 }
 header section.menu {
